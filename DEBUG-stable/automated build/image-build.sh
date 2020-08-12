@@ -1,5 +1,5 @@
 ##!/bin/bash
-TAG="apache2-modsec"
+TAG="debug-stable"
 
 
 docker build -t $TAG ..

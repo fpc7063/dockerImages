@@ -1,5 +1,5 @@
 ##!/bin/bash
-TAG="mariadb"
+TAG="apache2-modsec"
 
 
 docker build -t $TAG ..

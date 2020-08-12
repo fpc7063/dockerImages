@@ -4,13 +4,11 @@ LABEL maintainer="fpc7063" contact="francisco.pc@sempreceub.com"
 
 ENV DEBIAN_FRONTEND noninteractive
 
+#Update SO
+RUN apt update && apt upgrade -y
 
-#Update dependencies #DEBUG TOOLS
-RUN apt update \
-&& apt install -y vim net-tools telnet curl procps \ 
-&& apt install -y git ca-certificates iproute2
-
-
+#Install dependencies
+RUN apt install -y git
 
 #Add diretorio src
 ADD src /tmp/src

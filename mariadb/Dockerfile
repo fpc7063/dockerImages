@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:buster
 
 LABEL maintainer="fpc7063" contact="francisco.pc@sempreceub.com"
 
@@ -17,8 +17,11 @@ RUN apt install -y mariadb-server
 
 #DB USERS
 RUN service mysql start && \
-mysqladmin password "Uniceub2020" && \
-mysql -e "CREATE USER 'uniceub'@localhost IDENTIFIED BY 'uniceub';"
+mysqladmin --user=root password "Uniceub2020" && \
+mysql -e "CREATE USER 'uniceub'@localhost IDENTIFIED BY 'uniceub';" && \
+service mysql stop
+
+
 # Define mountable directories.
 #######VOLUME ["/etc/mysql", "/var/lib/mysql"]
 # Define working directory.
