@@ -6,19 +6,19 @@ ENV DEBIAN_FRONTEND noninteractive
 
 
 #Update dependencies #DEBUG TOOLS
-RUN apt update \
-&& apt install -y vim net-tools telnet curl procps \ 
-&& apt install -y git ca-certificates iproute2
+RUN apt update
 #INSTALL DEPENDENCIES
 
 
 #MariaDB install
-RUN apt install -y mariadb-server
+RUN apt install -y mariadb-server vim net-tools
 
 #DB USERS
 RUN service mysql start && \
-mysqladmin --user=root password "Uniceub2020" && \
-mysql -e "CREATE USER 'uniceub'@localhost IDENTIFIED BY 'uniceub';" && \
+mysql -e "CREATE DATABASE uniceub;" && \
+mysql -e "CREATE USER  'uniceub'@'0.0.0.0' IDENTIFIED BY 'uniceub';" && \
+mysql -e "GRANT ALL ON *.* to 'uniceub'@'172.17.0.1' IDENTIFIED BY 'uniceub' WITH GRANT OPTION;" && \
+mysql -e "FLUSH PRIVILEGES;" && \
 service mysql stop
 
 
@@ -27,6 +27,7 @@ service mysql stop
 # Define working directory.
 #######WORKDIR /data
 
+RUN echo "\n[mysqld]\nbind-address = 0.0.0.0" | tee -a /etc/mysql/my.cnf
 
 #CONFIG FOR Image Development
 ADD development.sh /tmp/development.sh
