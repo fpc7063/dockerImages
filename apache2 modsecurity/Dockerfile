@@ -11,8 +11,8 @@ RUN apt update && apt upgrade -y
 RUN apt install -y git
 
 #Add diretorio src
-ADD src /tmp/src
-RUN chmod 700 /tmp/src/*
+ADD ./src /tmp/src
+RUN chmod 700 /tmp/src/apache2-setup.sh
 
 
 #Apache modsec2 install/config
@@ -21,17 +21,9 @@ rm /tmp/src/apache2-setup.sh
 
 
 
-
-#CONFIG FOR Image Development
-ADD development.sh /tmp/development.sh
-RUN chmod +x /tmp/development.sh
-ENTRYPOINT ["/bin/bash"]
-
-
 #NETWORK CONFIGURATION
 EXPOSE 80/tcp
 
 
 
-#ENTRYPOINT [ "/bin/sh" ]
 CMD ["apachectl", "-D", "FOREGROUND"]

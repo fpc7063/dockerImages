@@ -1,5 +1,10 @@
 #!/bin/bash
-TAG="apache2-modsec"
+TAG="python3-8-5"
+
+#Vai ser alterado ainda, por enquanto solucao tapa buraco
+echo "[DEBUG] Limpando ambiente..."
+docker images | grep "<none>" | awk '{print $3 "\n"}' | xargs docker rmi -f
+
 
 IMAGE=`docker images | grep $TAG | awk '{printf $3}' | cut -c 1-12`
 CONTAINER=`docker container list -a | grep $IMAGE | cut -c 1-12`
