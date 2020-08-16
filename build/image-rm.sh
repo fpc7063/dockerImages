@@ -1,5 +1,5 @@
 #!/bin/bash
-TAG="flask"
+TAG="python3-8-5"
 
 #Vai ser alterado ainda, por enquanto solucao tapa buraco
 echo "[DEBUG] Limpando ambiente..."

@@ -32,17 +32,9 @@ RUN chmod +x /tmp/src/install-project.sh && \
 /tmp/src/install-project.sh
 
 
-
-
 #ENV SETUP
 WORKDIR /opt/project
 ## ENVIRONMENT VARIABLES
-ENV FLASK_APP /opt/project/server.py
-ENV FLASK_ENV DEVELOPMENT
 
-
-
-
-
-#flask run --host=0.0.0.0
-CMD ["/opt/project/startup.sh"]
+ENTRYPOINT ["/bin/bash"]
+CMD ["/tmp/development.sh"]

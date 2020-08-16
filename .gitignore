@@ -1,0 +1,7 @@
+#VS CODE
+.vscode
+automated build
+
+#Python
+.pyc
+venv
