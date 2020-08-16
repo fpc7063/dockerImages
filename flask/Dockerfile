@@ -42,7 +42,8 @@ ENV FLASK_ENV DEVELOPMENT
 
 
 
-
+#Port Exposing
+EXPOSE 5000/tcp
 
 #flask run --host=0.0.0.0
 CMD ["/opt/project/startup.sh"]
