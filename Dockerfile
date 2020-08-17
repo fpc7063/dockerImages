@@ -1,6 +1,6 @@
 FROM debian:bullseye
 
-LABEL maintainer="fpc7063" contact="francisco.pc@sempreceub.com"
+LABEL maintainer="fpc7063" contact="francisco.pc7063@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive
 
