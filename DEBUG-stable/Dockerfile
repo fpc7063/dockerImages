@@ -1,4 +1,4 @@
-FROM debian:strectch
+FROM debian:stretch
 
 LABEL maintainer="fpc7063" contact="francisco.pc@sempreceub.com"
 
