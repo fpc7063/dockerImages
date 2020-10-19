@@ -1,0 +1,13 @@
+version: "3.0"
+
+services:
+
+  elasticsearch:
+    build: ./elasticsearch
+    command: bash -c "echo 'vm.max_map_count=262144' | tee -a /etc/sysctl.conf && elasticsearch -Enetwork.bind_host=0.0.0.0"
+    #command: bash -c "while true; do sleep 12 ; echo 'foreground'; done"
+    ports:
+      - 9200:9200
+    environment:
+      - ES_JAVA_OPTS=-Xms4g -Xmx4g
+      - ANONYMOUS_USER=true

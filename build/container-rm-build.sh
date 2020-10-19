@@ -1,5 +1,5 @@
 #!/bin/bash
-TAG="python3-8-5"
+source ./variables.sh
 
 IMAGE=`docker images | head -n2 | tail -n1 | awk '{printf $3}' | cut -c 1-12`
 CONTAINER=`docker container list -a | grep $IMAGE | cut -c 1-12`
