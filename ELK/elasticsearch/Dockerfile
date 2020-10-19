@@ -36,9 +36,5 @@ ENV Enetwork.bind_host "0.0.0.0"
 ENV Ehttp.max_content_length "2000mb"
 
 
-RUN sudo apt install -y vim net-tools
-ADD run.sh /tmp/run.sh
-RUN sudo chmod +x /tmp/run.sh
 ENTRYPOINT ["/opt/elasticsearch-7.9.2/bin/elasticsearch"]
-
 CMD ["-Ecluster.name=$Ecluster.name -Enode.name=$Enode.name -Enetwork.bind_host=$Enetwork.bind_host -Ehttp.max_content_length=$Ehttp.max_content_length"]
