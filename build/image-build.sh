@@ -1,7 +1,7 @@
 #!/bin/bash
 source ./variables.sh
 
-docker build -t $TAG ..
+docker build -t $TAG ../$TAG
 if [[ $? == 1 ]]; then	
 	IMAGE=`docker images | grep "<none>" | sed -E 's/\ +/\t/g' | cut -f3`
 	echo -e "[DEBUG] Build process failed...\n Removing Image: $IMAGE"

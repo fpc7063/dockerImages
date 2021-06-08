@@ -1,4 +1,6 @@
 #!/bin/bash
-TAG='elasticsearch'
+TAG='jupyterlabs'
+
+cd ../$TAG
 
 export $TAG
